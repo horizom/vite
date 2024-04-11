@@ -53,6 +53,36 @@ $plugin = new Vite($config);
 $plugin->render($entry);
 ```
 
+And setup your vite config in `vite.config.js` file
+
+```js
+import { defineConfig, splitVendorChunkPlugin } from "vite";
+import path from "node:path";
+import vue from "@vitejs/plugin-vue";
+import liveReload from "vite-plugin-live-reload";
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    liveReload([
+      __dirname + "/resources/views/**/*.php",
+      __dirname + "/app/*.php",
+    ]),
+    splitVendorChunkPlugin(),
+  ],
+  publicDir: path.resolve(__dirname, "storage/assets"),
+  base: process.env.APP_ENV === "development" ? "/" : "/dist/",
+  build: {
+    outDir: "./public/dist",
+    emptyOutDir: true,
+    manifest: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, "resources/js/app.js"),
+    },
+  },
+});
+```
+
 ## License
 
 The Laravel Vite plugin is open-sourced software licensed under the [MIT license](LICENSE.md).
