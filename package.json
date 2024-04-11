@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "@horizom/vite-plugin",
+  "version": "1.0.0",
+  "description": "Vite plugin to run PHP files",
+  "main": "js/vite-plugin.js",
+  "type": "module",
+  "homepage": "https://github.com/horizom/vite#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Roland Edi",
+    "email": "rolandedi@codivoire.com"
+  },
+  "bugs": {
+    "url": "https://github.com/horizom/vite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/horizom/vite.git"
+  },
+  "keywords": [
+    "vite-plugin"
+  ],
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "picocolors": "^1.0.0"
+  }
+}
